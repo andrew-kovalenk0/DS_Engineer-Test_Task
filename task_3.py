@@ -11,7 +11,7 @@ class CustomSequential(tf.keras.models.Sequential):
 
         Parameters
         ----------
-        X: np.ndarray
+        x: np.ndarray
             Predict data.
 
         Returns
@@ -93,7 +93,7 @@ class RandomClassifier:
         """
         X_center = X[:, 9:19, 9:19]
         random.seed(self.random_seed)
-        return np.array([random.randint(0, 9) for i in range(X.shape[0])])
+        return np.array([random.randint(0, 9) for _ in range(X.shape[0])])
 
     def train(self, X: np.ndarray, y: np.ndarray):
         """Pseudo train functionality.

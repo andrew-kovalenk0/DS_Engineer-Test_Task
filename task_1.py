@@ -91,4 +91,5 @@ if __name__ == '__main__':
                 [0, 0, 1, 1],
                 [0, 1, 0, 1]]
 
-    print(islands_counter(matrix_1))
+    print(f'\nNumber of islands in provided structure: '
+          f'{islands_counter(matrix_1)}.')

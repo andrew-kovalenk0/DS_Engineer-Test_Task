@@ -3,6 +3,7 @@ import pickle
 import argparse
 
 if __name__ == "__main__":
+    # Console argument parser
     parser = argparse.ArgumentParser(description='Train pipeline')
     parser.add_argument('--data_name', help='Data to predict file name',
                         required=True)
@@ -12,13 +13,14 @@ if __name__ == "__main__":
     args = vars(parser.parse_args())
 
     df = pd.read_csv(f'data/{args["data_name"]}.csv')
+
     # Used only 6 feature, check reason eda file conclusion.
     x_test = df[['6']]
 
     # Build polynomial feature
     x_test **= 2
 
-    # Load model, for better
+    # Load model
     model = pickle.load(open(f'models/{args["model_name"]}', 'rb'))
 
     predictions = pd.DataFrame(model.predict(x_test), columns=['predictions'])

@@ -7,12 +7,14 @@ from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import LinearRegression
 
 if __name__ == "__main__":
+    # Console argument parser
     parser = argparse.ArgumentParser(description='Train pipeline')
     parser.add_argument('--data_name', help='Train file name', required=True)
     parser.add_argument('--model_name', help='Model file name', required=True)
     args = vars(parser.parse_args())
 
     df = pd.read_csv(f'data/{args["data_name"]}.csv')
+
     # Used only 6 feature, check reason eda file conclusion.
     x_train, x_test, y_train, y_test = train_test_split(
         df[['6']], df['target'], test_size=0.2)
